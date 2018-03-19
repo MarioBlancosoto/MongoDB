@@ -66,7 +66,13 @@ public class Metodos {
          Document condicion = new Document("item","TBD");
         Document operacion = new Document("$inc",new Document().append("stock",5));
         colecion.updateMany(condicion, operacion);
+        //Con esto ponemos a 1 el stock a todos
         
+        //en la condición ponemos en donde queremos hacer esto
+        Document condicion = new Document();
+        Document operacion = new Document("$set",new Document().append("stock",1));
+        colecion.updateMany(condicion, operacion);
+        cliente.close();
         
     }
     
